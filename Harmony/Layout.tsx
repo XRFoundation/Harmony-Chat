@@ -8,7 +8,6 @@ import { AuthService } from '@xrengine/client-core/src/user/services/AuthService
 import { ClientSettingService } from '@xrengine/client-core/src/admin/services/Setting/ClientSettingService'
 import { useClientSettingState } from '@xrengine/client-core/src/admin/services/Setting/ClientSettingService'
 import { theme } from '@xrengine/client-core/src/theme'
-import { Config } from '@xrengine/common/src/config'
 import { Helmet } from 'react-helmet'
 import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch } from '@xrengine/client-core/src/store'
@@ -18,8 +17,6 @@ declare module '@mui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {}
 }
-
-const title: string = Config.publicRuntimeConfig.title
 
 const initialSelectedUserState = {
   id: '',
@@ -109,7 +106,7 @@ const Layout = (props: Props): any => {
         <section>
           <Helmet>
             <title>
-              {ctitle || title} | {pageTitle}
+              {ctitle} | {pageTitle}
             </title>
             {description && <meta name="description" content={description}></meta>}
             {favicon16 && <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />}
